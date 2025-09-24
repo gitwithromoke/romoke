@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Login</title>
+</head>
+<head>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      text-align: center;
+    }
+
+    .form-container h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: #2563eb;
+    }
+
+    .form-container h2 i {
+      margin-right: 8px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      text-align: left;
+      font-weight: 600;
+      color: #374151;
+      font-size: 0.9rem;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+      outline: none;
+      box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
+    }
+
+    button {
+      padding: 12px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #1e40af;
+    }
+
+    .message {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2><i class="fa-solid fa-arrow-turn-down"></i>Login</h2>
+    <form id="loginForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+      <button type="submit">Log In</button>
+    </form>
+    <div class="message" id="message"></div>
+  </div>
+</body>
+
+
+  <!-- Firebase Auth -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBUK8xA0UDKGgXEX3XFq0cHbj8CSiO-cv8",
+      authDomain: "august-firebase-98962.firebaseapp.com",
+      projectId: "august-firebase-98962",
+      storageBucket: "august-firebase-98962.appspot.com",
+      messagingSenderId: "562563245064",
+      appId: "1:562563245064:web:530975237223e05a979dbd",
+      measurementId: "G-PHTMEJBNB5"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const loginForm = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = loginForm.email.value;
+      const password = loginForm.password.value;
+
+      try {
+        const credential = await signInWithEmailAndPassword(auth, email, password);
+        const user = credential.user;
+        console.log("User logged in:", user);
+        alert("Login successful!");
+        loginForm.reset();
+        window.location.href = "./Dashboard.html";
+      } catch (error) {
+        message.innerHTML = error.message.replace("Firebase: ", "");
+        console.error("Error logging in user", error);
+      }
+    });
+  </script>
+</html>

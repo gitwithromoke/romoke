@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-commerce Project</title>
+  <style>
+    /* Global colors */
+    html {
+      --main-color: #2563eb;
+      --background-color: #f3f4f6;
+      --text-color: #111;
+      --light-text: #110f0f;
+
+    }
+
+    /* body */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--background-color);
+      color: var(--text-color);
+    }
+
+    /* Header */
+    header {
+      background: var(--main-color);
+      color: #fff;
+      max-width: 1100px;
+      margin: 10px auto;
+      margin-top: 50px;
+      padding: 12px 10px;
+      display: flex;
+      border: none;
+      justify-content: space-evenly;
+      align-items: center;
+      border: 2px solid #1e40af;
+      border-radius: 10px;
+
+    }
+
+    header .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    header nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header nav button {
+      background: none;
+      border: none;
+      color: #fff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    header nav button:hover {
+      text-decoration: underline;
+
+    }
+
+    @media(max-width:859px) {
+      header {
+        max-width: 999px;
+        padding: 8px 8px;
+
+      }
+    }
+
+    @media(max-width:603px) {
+      header {
+        max-width: 550px;
+        padding: 5px 4px;
+      }
+    }
+
+    @media(max-width:600px) {
+      header {
+        max-width: 400px;
+        padding: 5px 4px;
+      }
+    }
+
+    @media(max-width:859px) {
+      header.logo {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+    }
+
+    @media(max-width:601px) {
+      header.logo {
+        font-size: 1.1rem;
+        font-weight: 300;
+      }
+    }
+
+    @media(max-width:703px) {
+      header nav {
+        gap: 5px;
+        font-size: 0.8em;
+        /* margin-right: 40px; */
+      }
+    }
+
+    @media(max-width:601px) {
+      header nav {
+        font-size: 1.em;
+        font-weight: 300;
+      }
+    }
+
+    @media(max-width:425px) {
+      header {
+        max-width: 500px;
+        font-size: 0.5em;
+        font-weight: 200;
+      }
+    }
+
+    @media(max-width:425px) {
+      header nav {
+        font-size: 1em;
+        font-weight: 100;
+      }
+    }
+
+    .search input {
+      padding: 8px 3px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .search button {
+      background: #fff;
+      color: var(--main-color);
+      border: none;
+      padding: 6px 4px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .search button:hover {
+      background: #e5e7eb;
+    }
+
+    @media(max-width:601px) {
+      .search input {
+        padding: 4px;
+        font-size: 0.6em;
+
+      }
+    }
+
+    @media(max-width:601px) {
+      .search button {
+        padding: 4px 3px;
+        font-size: 0.6em;
+      }
+    }
+
+    @media(max-width:425px) {
+      .search button {
+        padding: 3px;
+        font-size: 0.5em;
+      }
+    }
+
+    #cartBtn {
+      background: #fff;
+      color: var(--main-color);
+      border: none;
+      padding: 6px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #cartBtn:hover {
+      background: #e5e7eb;
+    }
+
+    @media(max-width:611px) {
+      #cartBtn {
+        padding: 3px 3px;
+        font-size: 0.5em;
+      }
+    }
+
+    @media(max-width:425px) {
+      #cartBtn {
+        padding: 3px 3px;
+        font-size: 0.4em;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      background: url("https://via.placeholder.com/1200x400") no-repeat center/cover;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: black;
+    }
+
+    @media(max-width:425px) {
+      .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #333;
+      }
+    }
+
+    .welcome {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2563eb;
+      opacity: 0;
+      animation: fadeInOut 5s ease-in-out forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      20% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+
+    @media(max-width:425px) {
+      .welcome {
+        font-size: 1.5rem;
+      }
+    }
+
+      .hero p {
+        color: #110f0f;
+        font-size: 1.2rem;
+      }
+       @media (max-width:425px){
+      .hero p{
+        font-size: 1.1rem;
+      }
+    }
+
+      /* Product Grid */
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      .product-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .product-card img {
+        max-width: 100%;
+        height: 160px;
+        object-fit: contain;
+      }
+
+      .product-card button {
+        background: var(--main-color);
+        color: #fff;
+        padding: 8px 14px;
+        border: none;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+
+      .product-card button:hover {
+        background: #1e40af;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--text-color);
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+      }
+
+      footer a {
+        color: #ccc;
+        margin: 0 8px;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+        color: red;
+      }
+
+      /* Utility */
+      .hidden {
+        display: none;
+      }
+
+      button {
+        cursor: pointer;
+      }
+      @media(max-width:425px){
+        footer{
+          font-size: 1.2em;
+        }
+      }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">REC</div>
+    <nav>
+      <div class="search">
+        <input id="searchInput" placeholder="Search products..." />
+        <button id="searchBtn">Search</button>
+      </div>
+      <div id="authArea">
+        <button id="signupBtn">Sign up</button>
+        <button id="loginBtn">Login</button>
+      </div>
+      <div id="userArea" class="hidden">
+        Hi, <span id="usernameDisplay"></span>
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </nav>
+    <button id="cartBtn">Cart (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="welcome">
+        <h1>Welcome to MyShop</h1>
+        <p>Best deals on clothes, gadgets, and more</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main>
+    <section id="productList" class="products"></section>
+    <section id="productDetails" class="hidden"></section>
+    <section id="cartPage" class="hidden"></section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>an E-commence website for 2025. <br>All rights reserved.</p>
+    <div>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms of Service</a>
+    </div>
+  </footer>
+  <script>
+    // ===== AUTH HELPERS =====
+    function getUsers() { return JSON.parse(localStorage.getItem("users")) || []; }
+    function saveUsers(users) { localStorage.setItem("users", JSON.stringify(users)); }
+    function getAuthUser() { return localStorage.getItem("authUser"); }
+    function setAuthUser(username) { localStorage.setItem("authUser", username); }
+    function logoutUser() { localStorage.removeItem("authUser"); }
+
+    const authArea = document.getElementById("authArea");
+    const userArea = document.getElementById("userArea");
+    const usernameDisplay = document.getElementById("usernameDisplay");
+
+    function updateAuthUI() {
+      const user = getAuthUser();
+      if (user) {
+        authArea.classList.add("hidden");
+        userArea.classList.remove("hidden");
+        usernameDisplay.textContent = user;
+      } else {
+        authArea.classList.remove("hidden");
+        userArea.classList.add("hidden");
+      }
+    }
+
+    document.getElementById("signupBtn").onclick = () => {
+      const username = prompt("Choose username:");
+      const password = prompt("Choose password:");
+      if (!username || !password) return;
+      const users = getUsers();
+      if (users.find(u => u.username === username)) return alert("User exists!");
+      users.push({ username, password });
+      saveUsers(users);
+      alert("Signup successful!");
+    };
+
+    document.getElementById("loginBtn").onclick = () => {
+      const username = prompt("Username:");
+      const password = prompt("Password:");
+      const users = getUsers();
+      const user = users.find(u => u.username === username && u.password === password);
+      if (user) {
+        setAuthUser(username);
+        updateAuthUI();
+      } else {
+        alert("Invalid login!");
+      }
+    };
+
+    document.getElementById("logoutBtn").onclick = () => {
+      logoutUser();
+      updateAuthUI();
+    };
+
+    // ===== PRODUCTS =====
+    let products = [];
+    async function loadProducts() {
+      try {
+        const res = await fetch("https://fakestoreapi.com/products");
+        products = await res.json();
+      } catch {
+        products = [
+          { id: 1, title: "Sample Shirt", price: 25, description: "Cool cotton shirt", image: "https://via.placeholder.com/150" },
+          { id: 2, title: "Sample Phone", price: 299, description: "Smartphone", image: "https://via.placeholder.com/150" },
+        ];
+      }
+      renderProducts(products);
+    }
+
+    function renderProducts(list) {
+      const container = document.getElementById("productList");
+      container.innerHTML = "";
+      list.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="${p.image}" alt="${p.title}">
+          <h3>${p.title}</h3>
+          <p>$${p.price}</p>
+          <button onclick="showDetails(${p.id})">View</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // ===== PRODUCT DETAILS =====
+    function showDetails(id) {
+      const p = products.find(pr => pr.id === id);
+      const section = document.getElementById("productDetails");
+      section.classList.remove("hidden");
+      document.getElementById("productList").classList.add("hidden");
+      section.innerHTML = `
+        <button onclick="closeDetails()">← Back</button>
+        <h2>${p.title}</h2>
+        <img src="${p.image}" alt="${p.title}">
+        <p>${p.description}</p>
+        <p><strong>$${p.price}</strong></p>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+      `;
+    }
+
+    function closeDetails() {
+      document.getElementById("productDetails").classList.add("hidden");
+      document.getElementById("productList").classList.remove("hidden");
+    }
+
+    // ===== CART =====
+    function getCart() { return JSON.parse(localStorage.getItem("cart")) || []; }
+    function saveCart(cart) { localStorage.setItem("cart", JSON.stringify(cart)); updateCartCount(); }
+
+    function addToCart(id) {
+      const p = products.find(pr => pr.id === id);
+      let cart = getCart();
+      const item = cart.find(c => c.id === id);
+      if (item) item.qty += 1;
+      else cart.push({ ...p, qty: 1 });
+      saveCart(cart);
+      alert("Added to cart!");
+    }
+
+    function renderCart() {
+      const cart = getCart();
+      const section = document.getElementById("cartPage");
+      section.classList.remove("hidden");
+      document.getElementById("productList").classList.add("hidden");
+      document.getElementById("productDetails").classList.add("hidden");
+      section.innerHTML = "<h2>Your Cart</h2>";
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.qty;
+        section.innerHTML += `
+          <div>
+            <h4>${item.title}</h4>
+            <p>$${item.price} x ${item.qty} = $${item.price * item.qty}</p>
+            <button onclick="updateQty(${item.id}, 1)">+</button>
+            <button onclick="updateQty(${item.id}, -1)">-</button>
+          </div>
+        `;
+      });
+      section.innerHTML += `<h3>Total: $${total.toFixed(2)}</h3>
+        <button onclick="closeCart()">← Back</button>`;
+    }
+
+    function closeCart() {
+      document.getElementById("cartPage").classList.add("hidden");
+      document.getElementById("productList").classList.remove("hidden");
+    }
+
+    function updateQty(id, change) {
+      let cart = getCart();
+      cart = cart.map(i => {
+        if (i.id === id) i.qty += change;
+        return i;
+      }).filter(i => i.qty > 0);
+      saveCart(cart);
+      renderCart();
+    }
+
+    function updateCartCount() {
+      const cart = getCart();
+      document.getElementById("cartCount").textContent =
+        cart.reduce((s, i) => s + i.qty, 0);
+    }
+
+    document.getElementById("cartBtn").onclick = renderCart;
+
+    // ===== SEARCH =====
+    document.getElementById("searchBtn").onclick = () => {
+      const term = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = products.filter(p =>
+        p.title.toLowerCase().includes(term) ||
+        p.description.toLowerCase().includes(term)
+      );
+      renderProducts(filtered);
+    };
+
+    // ===== INIT =====
+    updateAuthUI();
+    updateCartCount();
+    loadProducts();
+  </script>
+</body>
+
+</html>
